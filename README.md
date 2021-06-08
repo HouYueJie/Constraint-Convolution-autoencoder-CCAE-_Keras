@@ -4,14 +4,14 @@ The data is compressed by using the constraint convolution autoencoder.
 
 # 一. 搭建环境
 ## -环境配置
-numpy                  1.19.4
-tensorflow-gpu         2.4.0
-tqdm                   4.54.0
-matplotlib             3.2.1
-opencv-python          4.4.0.46
-Keras                  2.4.3
-Pillow                 7.1.2
-h5py                   2.10.0
+numpy==1.19.4 
+tensorflow-gpu==2.4.0 
+tqdm==4.54.0 
+matplotlib==3.2.1 
+opencv-python==4.4.0.46 
+Keras==2.4.3 
+Pillow==7.1.2 
+h5py==2.10.0 
 
 # 二. 配置 config.py
 ## -路径配置
