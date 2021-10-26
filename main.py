@@ -14,8 +14,6 @@ import cv2 as cv
 import os
 from keras.callbacks import ModelCheckpoint
 
-os.environ["CUDA_VISIBLE_DEVICES"]='-1'
-
 def save(data,file_name):
     with open(file_name,"wb")as f:
         pickle.dump(data,f)
@@ -25,11 +23,12 @@ if __name__=="__main__":
     check_path = C.train_config["check_path"]
     if sys.argv[1]=="train":
         if sys.argv[2]=='gpu':
-            os.environ["CUDA_VISIBLE_DEVICES"]='1'
+            os.environ["CUDA_VISIBLE_DEVICES"]='1'#'0'~'n'为GPU序号，可指定训练的GPU
         elif sys.argv[2]=='cpu':
             os.environ["CUDA_VISIBLE_DEVICES"]='-1'
         else:
             print('Please choose a model type (gpu/cpu)')
+            
         if glob.glob(check_path+'/*')!=[]:
             new_train=input("是否删除旧的权重？(yes or no)")
         else:
