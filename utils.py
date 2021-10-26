@@ -37,7 +37,6 @@ def generate_arrays_from_file(img_path_lst,batch_size,which_seg):
         this_path_lst=img_path_lst[which_seg*batch_size:(which_seg+1)*batch_size]
         this_images=read_image(this_path_lst,show=False)    
         which_seg +=1
-    
         yield this_images,this_images
 
 
@@ -49,34 +48,8 @@ def generate_arrays_from_file_2(img_path_lst,batch_size,which_seg):
         this_path_lst=img_path_lst[which_seg*batch_size:(which_seg+1)*batch_size]
         this_images=read_image(this_path_lst,show=False)
         which_seg +=1
-        
         yield this_path_lst,this_images,this_images
 
-'''
-def generate_arrays_from_256_data(middle_data_lst,batch_size,which_seg):
-    L=int(len(middle_data_lst)/batch_size)
-    print(L)
-    while True:
-        which_seg=transform(which_seg,L)
-        this_path_lst=middle_data_lst[which_seg*batch_size:(which_seg+1)*batch_size]
-        this_images=read_image(this_path_lst,show=False)
-        which_seg +=1
-        #print("count:"+str(which_seg))
-        yield this_images,this_images
-
-#提取压缩数据
-def generate_arrays_from_middle_data2(middle_img_lst,batch_size,which_seg):
-    print("生成batch数据")
-    L=int(len(middle_img_lst)/batch_size)
-    print(L)
-    while True:
-        which_seg=transform(which_seg,L)
-        this_path_lst=middle_img_lst[which_seg*batch_size:(which_seg+1)*batch_size]
-        this_images=read_image(this_path_lst,show=False)
-        which_seg +=1
-        #print("count:"+str(which_seg))
-        yield this_path_lst,this_images,this_images
-'''
 
 if __name__=="__main__":
     raw_data_path_lst = glob.glob(C.train_config["raw_data"]+"/*")
